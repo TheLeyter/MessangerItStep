@@ -1,6 +1,7 @@
 package ua.leyter.messengeritstep.data.network.services
 
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
 import ua.leyter.messengeritstep.domain.models.*
@@ -12,12 +13,12 @@ interface AuthServices {
     }
 
     @POST("$controllerName/login")
-    fun Login(@Body request:LoginRequest): Call<LoginResponse>
+    suspend fun Login(@Body request:LoginRequest): Response<LoginResponse>
 
     @POST("$controllerName/register")
-    fun Register(@Body request: RegisterRequest): Call<RegisterResponse>
+    suspend fun Register(@Body request: RegisterRequest): Response<RegisterResponse>
 
     @POST("$controllerName/confirm")
-    fun Confirm(@Body request: ConfirmRequest):Call<ConfirmResponse>
+    suspend fun Confirm(@Body request: ConfirmRequest): Response<ConfirmResponse>
 
 }
