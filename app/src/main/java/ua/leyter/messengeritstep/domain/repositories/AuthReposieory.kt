@@ -1,13 +1,14 @@
 package ua.leyter.messengeritstep.domain.repositories
 
 import kotlinx.coroutines.flow.Flow
+import ua.leyter.messengeritstep.domain.common.Response
 import ua.leyter.messengeritstep.domain.models.*
 
 interface AuthReposieory {
 
     fun register(data:RegisterRequest):RegisterResponse
 
-    fun login(data:LoginRequest): Flow<LoginResponse>
+    fun login(data:LoginRequest): Flow<Response<LoginResponse>>
 
     fun confirmEmail(data:ConfirmRequest):ConfirmResponse
 
