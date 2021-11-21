@@ -7,5 +7,6 @@ data class User(
     var FirstName:String,
     var LastName:String,
     var UserImage:String? = null,
-    var Bio:String? = null
+    var Bio:String? = null,
+    var UpdatedAt:ULong? = null
 )

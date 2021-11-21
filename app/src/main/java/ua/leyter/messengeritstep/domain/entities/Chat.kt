@@ -1,7 +1,8 @@
 package ua.leyter.messengeritstep.domain.entities
 
 data class Chat(
-    var Id:Int,
-    var UserOne:Int,
-    var UserTwo:Int
+    var Id:Long,
+    var UserCreator:Long,
+    var User:Long,
+    var CreatedAt:ULong
 )
