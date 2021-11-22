@@ -12,8 +12,8 @@ interface UserDao {
     @Query("SELECT * FROM Users WHERE :id LIKE id")
     suspend fun getUserById(id:Long):User
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun createUser(user:User):User
+//    @Insert(onConflict = OnConflictStrategy.REPLACE)
+//    suspend fun createUser(user:User):User
 
     @Update
     suspend fun updateUser(user:User)

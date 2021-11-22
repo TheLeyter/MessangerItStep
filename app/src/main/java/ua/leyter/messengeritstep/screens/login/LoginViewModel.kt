@@ -7,10 +7,10 @@ import ua.leyter.messengeritstep.data.cache.sharedPreference.SharedPreferenceUse
 import ua.leyter.messengeritstep.domain.common.Response
 import ua.leyter.messengeritstep.domain.models.LoginRequest
 import ua.leyter.messengeritstep.domain.models.LoginResponse
-import ua.leyter.messengeritstep.domain.repositories.AuthReposieory
+import ua.leyter.messengeritstep.domain.repositories.AuthRepository
 
 class LoginViewModel(
-    private val repository: AuthReposieory,
+    private val repository: AuthRepository,
     private val preference: SharedPreferenceUserService
     ) : ViewModel() {
 

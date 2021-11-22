@@ -10,7 +10,7 @@ import ua.leyter.messengeritstep.data.cache.database.AppDatabase
 import ua.leyter.messengeritstep.data.cache.sharedPreference.SharedPreferenceUserService
 import ua.leyter.messengeritstep.data.network.services.AuthServices
 import ua.leyter.messengeritstep.data.repositories.AuthRepositoryImpl
-import ua.leyter.messengeritstep.domain.repositories.AuthReposieory
+import ua.leyter.messengeritstep.domain.repositories.AuthRepository
 
 var AppModule = module{
 
@@ -41,7 +41,7 @@ var AppModule = module{
     }
 
     //Repositories
-    factory<AuthReposieory> {
+    factory<AuthRepository> {
         AuthRepositoryImpl(get<AuthServices>())
     }
 
