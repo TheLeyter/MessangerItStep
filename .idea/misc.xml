@@ -3,10 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Microsoft Visual Studio/source/repos/Android/MessangerItStep/app/src/main/res/drawable/left_arrow.xml" value="0.19166666666666668" />
         <entry key="..\:/Microsoft Visual Studio/source/repos/Android/MessangerItStep/app/src/main/res/drawable/main_graient_selector.xml" value="0.35" />
         <entry key="..\:/Microsoft Visual Studio/source/repos/Android/MessangerItStep/app/src/main/res/layout/activity_main.xml" value="0.26358695652173914" />
-        <entry key="..\:/Microsoft Visual Studio/source/repos/Android/MessangerItStep/app/src/main/res/layout/fragment_login_view.xml" value="0.26358695652173914" />
-        <entry key="..\:/Microsoft Visual Studio/source/repos/Android/MessangerItStep/app/src/main/res/layout/fragment_register_view.xml" value="0.26358695652173914" />
+        <entry key="..\:/Microsoft Visual Studio/source/repos/Android/MessangerItStep/app/src/main/res/layout/fragment_login_view.xml" value="0.2222222222222222" />
+        <entry key="..\:/Microsoft Visual Studio/source/repos/Android/MessangerItStep/app/src/main/res/layout/fragment_register_view.xml" value="0.2222222222222222" />
         <entry key="..\:/Microsoft Visual Studio/source/repos/Android/MessangerItStep/app/src/main/res/layout/fragment_splash_view.xml" value="0.26358695652173914" />
         <entry key="..\:/Users/vlopa/AndroidStudioProjects/MessangerItStep/app/src/main/res/layout/fragment_login_view.xml" value="0.6" />
         <entry key="..\:/Users/vlopa/Desktop/programming/Mobile/MessangerItStep/app/src/main/res/drawable/border_edit_text.xml" value="0.3828125" />
