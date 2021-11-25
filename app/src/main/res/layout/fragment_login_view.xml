@@ -65,7 +65,7 @@
             app:layout_constraintTop_toBottomOf="@id/LoginField" />
 
         <android.widget.Button
-            android:id="@+id/LoginBtn"
+            android:id="@+id/ConfirmBtn"
             style="@style/SolidBtn"
             android:layout_width="0dp"
             android:layout_height="60dp"
@@ -90,7 +90,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/LoginBtn"
+            app:layout_constraintTop_toBottomOf="@+id/ConfirmBtn"
             app:layout_constraintVertical_bias="1.0">
 
             <TextView

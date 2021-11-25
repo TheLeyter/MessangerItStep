@@ -14,4 +14,7 @@
     <string name="login_description">Press for login</string>
     <string name="fill_fields_below">Fill in the fields below to log in</string>
     <string name="register">Register</string>
+    <string name="confirm">Confirm</string>
+    <string name="confirm_text">Enter the code sent to</string>
+    <string name="example_email">example@mail.com</string>
 </resources>

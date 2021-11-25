@@ -33,5 +33,13 @@
         <action
             android:id="@+id/action_registerView_to_loginView"
             app:destination="@id/loginView" />
+        <action
+            android:id="@+id/action_registerView_to_confirmView"
+            app:destination="@id/confirmView" />
     </fragment>
+    <fragment
+        android:id="@+id/confirmView"
+        android:name="ua.leyter.messengeritstep.screens.confirm.ConfirmView"
+        android:label="fragment_confirm_view"
+        tools:layout="@layout/fragment_confirm_view"/>
 </navigation>

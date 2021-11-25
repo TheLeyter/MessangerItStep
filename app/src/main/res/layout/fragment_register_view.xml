@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/main_gradient"
         android:fadeScrollbars="true"
-        tools:context=".screens.register.RegisterView">
+        tools:context=".screens.confirm.ConfirmView">
 
         <TextView
             android:id="@+id/textView"
@@ -45,12 +45,12 @@
             android:importantForAutofill="no"
             android:inputType="textPersonName"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@id/EmailField"
+            app:layout_constraintBottom_toTopOf="@id/n1"
             app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
             app:layout_constraintStart_toStartOf="@id/guidelineStart" />
 
         <EditText
-            android:id="@+id/EmailField"
+            android:id="@+id/n1"
             style="@style/EditTextWithBorder"
             android:layout_width="0dp"
             android:layout_height="60dp"
@@ -77,7 +77,7 @@
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
             app:layout_constraintStart_toStartOf="@id/guidelineStart"
-            app:layout_constraintTop_toBottomOf="@id/EmailField" />
+            app:layout_constraintTop_toBottomOf="@id/n1" />
 
         <EditText
             android:id="@+id/LastNameField"
@@ -110,7 +110,7 @@
             app:layout_constraintTop_toBottomOf="@id/LastNameField" />
 
         <android.widget.Button
-            android:id="@+id/LoginBtn"
+            android:id="@+id/ConfirmBtn"
             style="@style/SolidBtn"
             android:layout_width="0dp"
             android:layout_height="60dp"
