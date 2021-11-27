@@ -1,12 +1,17 @@
 package ua.leyter.messengeritstep.screens.confirm
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import androidx.core.view.children
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import ua.leyter.messengeritstep.R
+import android.widget.TextView
 
 class ConfirmView : Fragment() {
 
@@ -21,7 +26,38 @@ class ConfirmView : Fragment() {
         viewOfLayout.findViewById<View>(R.id.backButton).setOnClickListener { view ->
             view.findNavController().navigateUp()
         }
+
+        viewOfLayout.findViewById<TextView>(R.id.n1).requestFocus()
+
+        val groupOfDigits: ViewGroup = viewOfLayout.findViewById(R.id.groupOfDigits)
+
+        addTextWatcherToEditTexts(groupOfDigits)
+
         return viewOfLayout
     }
 
+    private val textWatcher = object : TextWatcher {
+        override fun afterTextChanged(s: Editable?) {
+            // no-op
+        }
+
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            // no-op
+        }
+
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            val text = activity?.currentFocus as TextView?
+
+            if (text != null && text.length() > 0) {
+                val next = text.focusSearch(View.FOCUS_RIGHT) // or FOCUS_FORWARD
+                next?.requestFocus()
+            }
+        }
+    }
+
+    private fun addTextWatcherToEditTexts(groupOfDigits: ViewGroup) {
+        groupOfDigits.children.forEach { view ->
+            (view as? EditText)?.addTextChangedListener(textWatcher)
+        }
+    }
 }
