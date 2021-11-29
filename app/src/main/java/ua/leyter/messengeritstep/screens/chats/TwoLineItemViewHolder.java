@@ -27,11 +27,11 @@ import androidx.annotation.NonNull;
 /** A simple two line list item. */
 public class TwoLineItemViewHolder extends SingleLineItemViewHolder {
 
-    public final TextView secondary;
+    public final TextView secondLine;
 
     public TwoLineItemViewHolder(@NonNull View view) {
         super(view);
-        this.secondary = itemView.findViewById(R.id.mtrl_list_item_secondary_text);
+        this.secondLine = itemView.findViewById(R.id.mtrl_list_item_second_line);
     }
 
     @NonNull

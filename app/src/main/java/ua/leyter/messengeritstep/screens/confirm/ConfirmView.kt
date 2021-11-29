@@ -33,6 +33,10 @@ class ConfirmView : Fragment() {
 
         addTextWatcherToEditTexts(groupOfDigits)
 
+        viewOfLayout.findViewById<View>(R.id.ConfirmBtn).setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_confirmView_to_chatsView)
+        }
+
         return viewOfLayout
     }
 

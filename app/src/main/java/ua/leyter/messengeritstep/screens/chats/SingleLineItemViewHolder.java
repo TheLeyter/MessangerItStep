@@ -29,12 +29,12 @@ import ua.leyter.messengeritstep.R;
 public class SingleLineItemViewHolder extends ViewHolder {
 
     public final ImageView icon;
-    public final TextView text;
+    public final TextView firstLine;
 
     public SingleLineItemViewHolder(@NonNull View view) {
         super(view);
         this.icon = itemView.findViewById(R.id.mtrl_list_item_icon);
-        this.text = itemView.findViewById(R.id.mtrl_list_item_text);
+        this.firstLine = itemView.findViewById(R.id.mtrl_list_item_first_line);
     }
 
     @NonNull

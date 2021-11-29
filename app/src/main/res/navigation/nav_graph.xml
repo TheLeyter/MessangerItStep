@@ -41,5 +41,14 @@
         android:id="@+id/confirmView"
         android:name="ua.leyter.messengeritstep.screens.confirm.ConfirmView"
         android:label="fragment_confirm_view"
-        tools:layout="@layout/fragment_confirm_view"/>
+        tools:layout="@layout/fragment_confirm_view">
+        <action
+            android:id="@+id/action_confirmView_to_chatsView"
+            app:destination="@id/chatsView" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatsView"
+        android:name="ua.leyter.messengeritstep.screens.chats.ChatsView"
+        android:label="ChatsView"
+        tools:layout="@layout/fragment_chats_view" />
 </navigation>

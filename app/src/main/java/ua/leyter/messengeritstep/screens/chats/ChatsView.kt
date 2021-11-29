@@ -1,11 +1,12 @@
 package ua.leyter.messengeritstep.screens.chats
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import ua.leyter.messengeritstep.R
 
 class ChatsView : Fragment() {
@@ -16,7 +17,20 @@ class ChatsView : Fragment() {
         val viewOfLayout: View =
             inflater.inflate(R.layout.fragment_chats_view, container, false)
 
+        val recyclerView: RecyclerView = viewOfLayout.findViewById(R.id.RecyclerView)
+
+        recyclerView.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL ,false)
+        recyclerView.adapter = CustomRecyclerAdapter(fillList())
+
+        recyclerView.setDivider(R.drawable.recycler_view_divider)
+
         return viewOfLayout
     }
 
+    private fun fillList(): List<String> {
+        val data = mutableListOf<String>()
+        (0..15).forEach { i -> data.add("User Name $i") }
+        return data
+    }
 }
