@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ua.leyter.messengeritstep.R
+import ua.leyter.messengeritstep.domain.entities.User
 
 class ChatsView : Fragment() {
 
@@ -28,9 +29,22 @@ class ChatsView : Fragment() {
         return viewOfLayout
     }
 
-    private fun fillList(): List<String> {
-        val data = mutableListOf<String>()
-        (0..15).forEach { i -> data.add("User Name $i") }
+    private fun fillList(): List<User> {
+        val data = mutableListOf<User>()
+        val charPool : List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
+        (0..15).forEach { i ->
+            val user = User(
+                Id = i.toLong(),
+                FirstName = "User",
+                LastName = "Name $i",
+                UserName = "User Name $i",
+                UserImage = (1..19)
+                    .map { kotlin.random.Random.nextInt(0, charPool.size) }
+                    .map(charPool::get)
+                    .joinToString("")
+            )
+            data.add(user)
+        }
         return data
     }
 }

@@ -27,8 +27,6 @@ class ConfirmView : Fragment() {
             view.findNavController().navigateUp()
         }
 
-        viewOfLayout.findViewById<TextView>(R.id.n1).requestFocus()
-
         val groupOfDigits: ViewGroup = viewOfLayout.findViewById(R.id.groupOfDigits)
 
         addTextWatcherToEditTexts(groupOfDigits)
@@ -50,7 +48,7 @@ class ConfirmView : Fragment() {
         }
 
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            val text = activity?.currentFocus as TextView?
+            val text = activity?.currentFocus as? TextView?
 
             if (text != null && text.length() > 0) {
                 val next = text.focusSearch(View.FOCUS_RIGHT) // or FOCUS_FORWARD
