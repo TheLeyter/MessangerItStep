@@ -2,9 +2,12 @@ package ua.leyter.messengeritstep.screens.chats
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ua.leyter.messengeritstep.R
@@ -22,9 +25,35 @@ class ChatsView : Fragment() {
 
         recyclerView.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL ,false)
-        recyclerView.adapter = CustomRecyclerAdapter(fillList())
+
+        val users = fillList()
+
+        recyclerView.adapter = CustomRecyclerAdapter(users)
 
         recyclerView.setDivider(R.drawable.recycler_view_divider)
+
+        recyclerView.addOnItemTouchListener(object : RecyclerView.SimpleOnItemTouchListener() {
+            var downTouch = false
+            override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
+                when (e.action) {
+                    MotionEvent.ACTION_DOWN -> downTouch = true
+                    MotionEvent.ACTION_UP -> if (downTouch) {
+                        downTouch = false
+                        recyclerView.findChildViewUnder(e.x, e.y)?.let {
+                            val position = rv.getChildAdapterPosition(it)
+
+                            val bundle = bundleOf(
+                                "UserName" to users[position].UserName,
+                                "UserImage" to users[position].UserImage
+                            )
+                            recyclerView.findNavController().navigate(R.id.action_chatsView_to_chatView, bundle)
+                        }
+                    }
+                    else -> downTouch = false
+                }
+                return super.onInterceptTouchEvent(rv, e)
+            }
+        })
 
         return viewOfLayout
     }

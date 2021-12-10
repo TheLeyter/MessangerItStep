@@ -33,8 +33,8 @@ public class SingleLineItemViewHolder extends ViewHolder {
 
     public SingleLineItemViewHolder(@NonNull View view) {
         super(view);
-        this.image = itemView.findViewById(R.id.mtrl_list_item_icon);
-        this.firstLine = itemView.findViewById(R.id.mtrl_list_item_first_line);
+        this.image = itemView.findViewById(R.id.userImage);
+        this.firstLine = itemView.findViewById(R.id.userName);
     }
 
     @NonNull

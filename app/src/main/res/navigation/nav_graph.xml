@@ -50,5 +50,22 @@
         android:id="@+id/chatsView"
         android:name="ua.leyter.messengeritstep.screens.chats.ChatsView"
         android:label="ChatsView"
-        tools:layout="@layout/fragment_chats_view" />
+        tools:layout="@layout/fragment_chats_view" >
+        <action
+            android:id="@+id/action_chatsView_to_chatView"
+            app:destination="@id/chatView" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatView"
+        android:name="ua.leyter.messengeritstep.screens.chat.ChatView"
+        android:label="ChatView"
+        tools:layout="@layout/fragment_one_chat_view" >
+        <argument
+            android:name="UserName"
+            app:argType="string"
+            android:defaultValue="User Name 01" />
+        <argument
+            android:name="UserImage"
+            app:argType="string" />
+    </fragment>
 </navigation>

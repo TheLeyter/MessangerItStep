@@ -1,34 +1,34 @@
 package ua.leyter.messengeritstep.screens.chat
 
-import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import ua.leyter.messengeritstep.R
-import ua.leyter.messengeritstep.domain.entities.User
 
-class CustomRecyclerAdapter(private val users: List<User>) :
-    RecyclerView.Adapter<TwoLineItemViewHolder>() {
+class CustomRecyclerAdapter(private val messages: List<ChatMessage>) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private val imageDownloader = ImageDownloader()
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TwoLineItemViewHolder {
-        val itemView =
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.material_list_item_two_line, parent, false)
-        return TwoLineItemViewHolder(itemView)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return when (viewType) {
+            1 -> ChatItemOutViewHolder.create(parent)
+            else -> {
+                ChatItemInViewHolder.create(parent)
+            }
+        }
     }
 
-    override fun onBindViewHolder(holder: TwoLineItemViewHolder, position: Int) {
-        holder.firstLine?.text = users[position].UserName
-//        holder.secondLine?.text = "Last message bla bla bla..."
-
-        users[position].UserImage?.let {
-            imageDownloader.setImage("https://i.pravatar.cc/150?u=$it", holder.image)
-            holder.secondLine?.text = it
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        when (holder) {
+            is ChatItemOutViewHolder -> holder.chatMessage.text = messages[position].text
+            is ChatItemInViewHolder -> holder.chatMessage.text = messages[position].text
         }
     }
 
     override fun getItemCount(): Int {
-        return users.size
+        return messages.size
+    }
+
+    override fun getItemViewType(itemPos: Int): Int {
+        return if (messages[itemPos].isOut) {
+            1
+        } else 0
     }
 }

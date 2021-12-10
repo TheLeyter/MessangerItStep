@@ -21,11 +21,11 @@
 
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/backButton"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="#00FFFFFF"
-            android:contentDescription="@string/reorder_button"
+            android:contentDescription="@string/back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -41,11 +41,11 @@
             android:paddingStart="8dp"
             android:paddingEnd="0dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageButton"
+            app:layout_constraintStart_toEndOf="@+id/backButton"
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/mtrl_list_item_icon"
+                android:id="@+id/userImage"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
@@ -82,28 +82,28 @@
                     tools:ignore="ContentDescription" />
 
                 <TextView
-                    android:id="@+id/mtrl_list_item_first_line"
+                    android:id="@+id/userName"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_medium"
                     android:gravity="bottom"
                     android:maxLines="1"
+                    android:text="@string/user_name"
                     android:textAppearance="?attr/textAppearanceSubtitle1"
                     android:textColor="@color/mtrl_list_item_tint"
                     app:layout_constraintBaseline_toBaselineOf="@id/typeTextBaseline"
-                    app:layout_constraintBottom_toTopOf="@+id/mtrl_list_item_second_line"
-                    app:layout_constraintEnd_toEndOf="@+id/mtrl_list_item_second_line"
-                    app:layout_constraintStart_toStartOf="@+id/mtrl_list_item_second_line"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="User name 01" />
+                    app:layout_constraintBottom_toTopOf="@+id/userStatus"
+                    app:layout_constraintEnd_toEndOf="@+id/userStatus"
+                    app:layout_constraintStart_toStartOf="@+id/userStatus"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/mtrl_list_item_second_line"
+                    android:id="@+id/userStatus"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
-                    android:gravity="bottom"
-                    android:maxLines="2"
+                    android:maxLines="1"
+                    android:text="@string/online"
                     android:textAppearance="?attr/textAppearanceBody2"
                     android:textColor="#363636"
                     android:textSize="12sp"
@@ -111,8 +111,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/mtrl_list_item_first_line"
-                    tools:text="@string/online" />
+                    app:layout_constraintTop_toBottomOf="@+id/userName" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ImageButton
@@ -138,6 +137,7 @@
         android:paddingBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/constraintSend"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header" />
 
@@ -180,15 +180,14 @@
             android:layout_height="0dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
-            android:background="#00000000"
+            android:background="#00FFFFFF"
             android:contentDescription="@string/send"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:drawable/ic_menu_send"
-            app:tint="#000000"
-            tools:ignore="TouchTargetSizeCheck" />
+            app:srcCompat="@drawable/ic_baseline_send_24"
+            app:tint="#000000" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

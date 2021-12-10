@@ -21,7 +21,7 @@
     android:minHeight="?attr/minTouchTargetSize">
 
     <ImageView
-        android:id="@+id/mtrl_list_item_icon"
+        android:id="@+id/userImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
@@ -30,7 +30,7 @@
         android:paddingEnd="16dp"/>
 
     <TextView
-        android:id="@+id/mtrl_list_item_first_line"
+        android:id="@+id/userName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"

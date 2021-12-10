@@ -21,7 +21,6 @@ class CustomRecyclerAdapter(private val users: List<User>) :
     override fun onBindViewHolder(holder: TwoLineItemViewHolder, position: Int) {
         holder.firstLine?.text = users[position].UserName
 //        holder.secondLine?.text = "Last message bla bla bla..."
-
         users[position].UserImage?.let {
             imageDownloader.setImage("https://i.pravatar.cc/150?u=$it", holder.image)
             holder.secondLine?.text = it
