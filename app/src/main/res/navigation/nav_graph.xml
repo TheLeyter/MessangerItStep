@@ -54,6 +54,9 @@
         <action
             android:id="@+id/action_chatsView_to_chatView"
             app:destination="@id/chatView" />
+        <action
+            android:id="@+id/action_chatsView_to_settingsView"
+            app:destination="@id/settingsView" />
     </fragment>
     <fragment
         android:id="@+id/chatView"
@@ -68,4 +71,9 @@
             android:name="UserImage"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/settingsView"
+        android:name="ua.leyter.messengeritstep.screens.settings.SettingsView"
+        android:label="SettingsView"
+        tools:layout="@layout/fragment_settings_view" />
 </navigation>

@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import ua.leyter.messengeritstep.R
 import android.widget.TextView
+import ua.leyter.messengeritstep.MainActivity
 
 class ConfirmView : Fragment() {
 
@@ -22,6 +23,9 @@ class ConfirmView : Fragment() {
         // Inflate the layout for this fragment
         val viewOfLayout: View =
             inflater.inflate(R.layout.fragment_confirm_view, container, false)
+
+        (activity as MainActivity)
+            .setStatusBarTransparent(requireActivity(), viewOfLayout.findViewById(R.id.constraintConfirm))
 
         viewOfLayout.findViewById<View>(R.id.backButton).setOnClickListener { view ->
             view.findNavController().navigateUp()

@@ -5,6 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,13 +15,32 @@ import androidx.recyclerview.widget.RecyclerView
 import ua.leyter.messengeritstep.R
 import ua.leyter.messengeritstep.screens.chats.ImageDownloader
 
+
 class ChatView : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View {
-        // Inflate the layout for this fragment
         val viewOfLayout: View =
             inflater.inflate(R.layout.fragment_one_chat_view, container, false)
+
+        ViewCompat.setOnApplyWindowInsetsListener(viewOfLayout.findViewById(R.id.constraintLayout)) { root, windowInset ->
+            val inset = windowInset.getInsets(WindowInsetsCompat.Type.systemBars())
+
+            viewOfLayout.findViewById<View>(R.id.header2).updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                topMargin = inset.top
+            }
+            val isKeyboardVisible = windowInset.isVisible(WindowInsetsCompat.Type.ime())
+            if (isKeyboardVisible) {
+                root.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                    bottomMargin = windowInset.getInsets(WindowInsetsCompat.Type.ime()).bottom
+                }
+            } else {
+                root.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                    bottomMargin = inset.bottom
+                }
+            }
+            WindowInsetsCompat.CONSUMED
+        }
 
         viewOfLayout.findViewById<View>(R.id.backButton).setOnClickListener { view ->
             view.findNavController().navigateUp()

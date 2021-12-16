@@ -6,6 +6,9 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,6 +23,24 @@ class ChatsView : Fragment() {
         // Inflate the layout for this fragment
         val viewOfLayout: View =
             inflater.inflate(R.layout.fragment_chats_view, container, false)
+
+        ViewCompat.setOnApplyWindowInsetsListener(viewOfLayout.findViewById(R.id.constraintChats)) { root, windowInset ->
+            val inset = windowInset.getInsets(WindowInsetsCompat.Type.systemBars())
+            root.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                leftMargin = inset.left
+                bottomMargin = inset.bottom
+                rightMargin = inset.right
+            }
+            viewOfLayout.findViewById<View>(R.id.header2).updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                topMargin = inset.top
+            }
+            WindowInsetsCompat.CONSUMED
+        }
+
+
+        viewOfLayout.findViewById<View>(R.id.backButton).setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_chatsView_to_settingsView)
+        }
 
         val recyclerView: RecyclerView = viewOfLayout.findViewById(R.id.RecyclerView)
 
