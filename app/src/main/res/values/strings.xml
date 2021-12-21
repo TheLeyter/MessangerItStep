@@ -9,6 +9,7 @@
     <string name="password">Password</string>
     <string name="dont_have_account">Don\'t have account?</string>
     <string name="login_description">Press for login</string>
+    <string name="logout_description">Press for logout</string>
     <string name="fill_fields_below">Fill in the fields below to log in</string>
     <string name="register">Register</string>
     <string name="confirm">Confirm</string>
@@ -33,4 +34,7 @@
     <string name="edit_first_and_last_name">Edit First and Last Name</string>
     <string name="edit_email">Edit Email</string>
     <string name="add_photo">Add photo</string>
+    <string name="logout">Logout</string>
+    <string name="contacts">Contacts</string>
+    <string name="settings">Settings</string>
 </resources>

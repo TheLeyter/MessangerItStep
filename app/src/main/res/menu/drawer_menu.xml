@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/grp_1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/accountFragment"
+            android:icon="@drawable/ic_baseline_account_box_18"
+            android:title="@string/account" />
+        <item
+            android:id="@+id/chatsFragment"
+            android:icon="@drawable/ic_baseline_chat_24"
+            android:title="@string/chats" />
+        <item
+            android:id="@+id/contactsFragment"
+            android:icon="@drawable/ic_baseline_contacts_24"
+            android:title="@string/contacts" />
+        <item
+            android:id="@+id/settingsFragment"
+            android:icon="@drawable/ic_baseline_settings_24"
+            android:title="@string/settings" />
+    </group>
+
+
+
+</menu>
