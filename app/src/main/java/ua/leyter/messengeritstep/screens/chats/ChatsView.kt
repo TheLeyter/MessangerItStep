@@ -13,6 +13,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.navigation.NavigationView
+import ua.leyter.messengeritstep.MainActivity
 import ua.leyter.messengeritstep.R
 import ua.leyter.messengeritstep.domain.entities.User
 
@@ -37,9 +39,14 @@ class ChatsView : Fragment() {
             WindowInsetsCompat.CONSUMED
         }
 
+        viewOfLayout.findViewById<View>(R.id.backButton).setOnClickListener {
+            val imageDownloader = ImageDownloader()
 
-        viewOfLayout.findViewById<View>(R.id.backButton).setOnClickListener { view ->
-            view.findNavController().navigate(R.id.action_chatsView_to_settingsView)
+            imageDownloader.setImage("https://i.pravatar.cc/100",
+                (activity as MainActivity).findViewById<NavigationView>(R.id.nav_view)
+                    .getHeaderView(0).findViewById(R.id.userImage))
+
+            (activity as MainActivity).openCloseNavigationDrawer()
         }
 
         val recyclerView: RecyclerView = viewOfLayout.findViewById(R.id.RecyclerView)

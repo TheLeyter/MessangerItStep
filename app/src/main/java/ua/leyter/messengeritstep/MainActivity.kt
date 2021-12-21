@@ -7,15 +7,56 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.updateLayoutParams
+import androidx.core.view.*
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    private var drawerLayout: DrawerLayout? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
+        val navController = navHostFragment.navController
+
+        drawerLayout = findViewById(R.id.drawer_layout)
+        nav_view.setupWithNavController(navController)
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.nav_view)) { root, windowInset ->
+            val inset = windowInset.getInsets(WindowInsetsCompat.Type.systemBars())
+            root.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                leftMargin = inset.left
+                bottomMargin = inset.bottom
+                rightMargin = inset.right
+            }
+            WindowInsetsCompat.CONSUMED
+        }
+
+        findViewById<View>(R.id.logoutBtn).setOnClickListener {
+            navController.navigate(R.id.loginView)
+            drawerLayout?.closeDrawer(GravityCompat.START)
+        }
+    }
+
+    override fun onBackPressed() {
+        if (drawerLayout?.isDrawerOpen(GravityCompat.START) == true) {
+            drawerLayout?.closeDrawer(GravityCompat.START) }
+        else {
+            super.onBackPressed()
+        }
+    }
+
+    fun openCloseNavigationDrawer() {
+        if (drawerLayout?.isDrawerOpen(GravityCompat.START) == true) {
+            drawerLayout?.closeDrawer(GravityCompat.START)
+        } else {
+            drawerLayout?.openDrawer(GravityCompat.START)
+        }
     }
 
     fun setStatusBarTransparent(activity: Activity, view: View) {
