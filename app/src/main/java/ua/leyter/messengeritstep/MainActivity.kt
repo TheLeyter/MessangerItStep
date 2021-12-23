@@ -11,6 +11,7 @@ import androidx.core.view.*
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -30,9 +31,12 @@ class MainActivity : AppCompatActivity() {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.nav_view)) { root, windowInset ->
             val inset = windowInset.getInsets(WindowInsetsCompat.Type.systemBars())
             root.updateLayoutParams<ViewGroup.MarginLayoutParams> {
-                leftMargin = inset.left
                 bottomMargin = inset.bottom
-                rightMargin = inset.right
+            }
+            findViewById<NavigationView>(R.id.nav_view)
+                .getHeaderView(0).findViewById<View>(R.id.constraintHeader)
+                .updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                    topMargin = inset.top
             }
             WindowInsetsCompat.CONSUMED
         }

@@ -12,5 +12,9 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="colorNavigationItem">@color/menu_item_color_state</item>
+        <item name="colorNavigationItemSelected">@color/colorGradient_blue</item>
+        <item name="drawableNavigationItemBackground">@drawable/menu_background_color_state</item>
+        <item name="listPreferredItemHeightSmall">56dp</item>
     </style>
 </resources>

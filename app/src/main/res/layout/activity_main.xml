@@ -29,7 +29,6 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:theme="@style/Widget.Custom.NavigationView"
         app:headerLayout="@layout/nav_header"
         app:itemHorizontalPadding="20dp"
         app:itemIconPadding="15dp"

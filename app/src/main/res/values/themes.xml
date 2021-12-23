@@ -15,6 +15,7 @@
         <item name="colorNavigationItem">@color/menu_item_color_state</item>
         <item name="colorNavigationItemSelected">@color/colorGradient_blue</item>
         <item name="drawableNavigationItemBackground">@drawable/menu_background_color_state</item>
+        <item name="listPreferredItemHeightSmall">56dp</item>
     </style>
 
 </resources>
